@@ -1,9 +1,12 @@
-@import "bootstrap/scss/bootstrap-grid";
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
 @import "bootstrap/scss/_mixins";
 @import "_bem";
 
 $section-margin: 30px;
 $section: 20px;
+$primary-color: #458fcc;
+$secondary-color: gray;
 
 body {
   background-color: #e3e3e3;
@@ -12,30 +15,43 @@ body {
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   align-items: stretch;
+  padding-bottom: $section-margin;
+  margin-right: -$section-margin/2;
+  margin-left: -$section-margin/2;
 }
 
 .left-branch {
-  margin-right: $section-margin;
-  flex: 0 0;
-  flex-basis: 25%;
+  margin-right: $section-margin/2;
+  margin-left: $section-margin/2;
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-down(sm) {
+    flex-basis: 100%;
+  }
+}
+
+.right-branch {
+  margin-right: $section-margin/2;
+  margin-left: $section-margin/2;
+  flex: 1 1;
   display: flex;
   flex-direction: column;
 }
 
-.right-branch {
-  flex: 1 1;
-}
-
 .section {
+  border-radius: 4px;
   background-color: white;
   padding: $section;
   margin-top: $section-margin;
-  margin-bottom: $section-margin;
-
+  margin-bottom: 0;
+  flex: 0 0;
+  &:hover {
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
+  }
   &:last-child {
-    margin-top: 0;
     //flex-grow: 1;
   }
 
@@ -43,21 +59,51 @@ body {
     max-width: 100%;
     height: auto;
   }
-
   &__title {
     font-size: 1.5rem;
+    color: $primary-color;
   }
+  &__paragraph {
+    text-align: left;
+    font-size: 1.1rem;
 
-  &--special {
-    background-color: #458fcc;
+    &:last-child {
+      margin-bottom: 8px;
+    }
+  }
+  &__contact {
+    p:last-child {
+      margin-bottom: 8px;
+    }
+  }
+  &--primary {
+    background-color: $primary-color;
     color: white;
-
+    & .section__title {
+      color: white;
+    }
     & .hr {
       border-top-color: white;
     }
-
     & a {
       color: white;
+      text-decoration: underline;
+    }
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+    color: white;
+
+    & .section__title {
+      color: white;
+    }
+    & .hr {
+      border-top-color: white;
+    }
+    & a {
+      color: white;
+      text-decoration: underline;
     }
   }
 }
@@ -66,3 +112,57 @@ body {
   border-top: 1px solid black;
 }
 
+.text-group {
+  margin-bottom: 30px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  &__subtitle {
+    font-size: 1.2rem;
+    color: $primary-color;
+  }
+  &__text {
+    margin-bottom: 5px;
+  }
+}
+
+.social-container {
+  padding-bottom: 8px;
+
+  &__button {
+    display: flex;
+    align-content: center;
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 10px;
+
+    &:hover {
+      box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
+    }
+  }
+  &__icon {
+    width: 40px;
+    height: 40px;
+  }
+  &__name {
+    margin: 0;
+    padding-left: 15px;
+    line-height: 40px;
+    color: black;
+  }
+}
+
+.link-button {
+  color: $primary-color;
+
+  &.link-button--red {
+    color: #ff6447;
+  }
+}

@@ -2,108 +2,146 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About me</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="container">
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/about">About me</a>
+<body>
+<nav class='navbar navbar-dark bg-dark navbar-expand-md'>
+    <div class='container'>
+        <a class='navbar-brand' href='/' target='_blank'>
+            <i class='fa fa-university'></i>&emsp;[Insert Brand Here???]
+        </a>
+
+        <div class="justify-content-end" id="navItems">
+            <div class='navbar-nav'>
+                <a class='nav-item nav-link' href='/about'>
+                    About me
+                </a>
+            </div>
+        </div>
+    </div>
 </nav>
 
-<div class="wrapper">
-    <div class="left-branch">
-        <section class="section" id="profile-picture">
-            <img src="profile_picture.jpg" alt="my profile picture" class="section__image">
-        </section>
-        <section id="info" class="section section--special">
-            <h1 class="section__title">About Me</h1>
-            <div><hr class="hr"></div>
-            <div class="section__contact">
-                <p>Name: Nguyen Duy Anh</p>
-                <p>Gender: Male</>
-                <p>Phone: <a href="tel:+84968670100">096 867 0100</a></p>
-                <p>Email: <a href="mailto:duyanh2912@gmail.com">duyanh2912@gmail.com</a></p>
-                <p>Address: Thai Thinh, Dong Da, Hanoi</p>
-            </div>
-        </section>
-    </div>
+<div class="container">
+    <div class="wrapper">
+        <div class="left-branch">
+            <section class="section" id="profile-picture">
+                <img src="profile_picture.jpg" alt="my profile picture" class="section__image">
+            </section>
+            <section id="info" class="section section--primary">
+                <h1 class="section__title">About Me</h1>
+                <div>
+                    <hr class="hr">
+                </div>
+                <div class="section__contact">
+                    <p>Name: Nguyen Duy Anh</p>
+                    <p>Gender: Male</>
+                    <p>Phone: <a href="tel:+84968670100">096 867 0100</a></p>
+                    <p>Email: <a href="mailto:duyanh2912@gmail.com">duyanh2912@gmail.com</a></p>
+                    <p>Address: Thai Thinh, Dong Da, Hanoi</p>
+                </div>
+            </section>
+            <section class="section section--secondary">
+                <h2 class="section__title">
+                    Find Me On
+                </h2>
+                <div>
+                    <hr class="hr">
+                </div>
 
-    <div class="right-branch">
-        <section class="section" id="personal-summary">
-            <h2 class="section__title">Personal Summary</h2>
-            <div><hr class="hr"></div>
-            <ul>
-                <li>
-                    I am passionate about IT and able to quickly learn a new programming language or work in a new
-                    platform. The
-                    majority of my programming skills comes from self-teaching. I can work well independently or in a
-                    group
-                    setting providing all facets of computer support such as troubleshooting, installations, and
-                    maintenance.
-                </li>
-                <li>
-                    My lack of experiences in IT work can be compensated with the ability to learn quickly as well as
-                    interact
-                    and effectively communicate with people from diverse backgrounds, highlighting teamwork and problem
-                    solving.
-                    Excellent communication and presentation capabilities is also my strong suit.
-                </li>
-                <li>
-                    I have worked with HTML, CSS, JavaScript, Java and developed iOS applications with Swift and
-                    Objective-C. I
-                    also have experiences in working with Adobe Photoshop, Audacity and using GitHub, Heroku.
-                </li>
-            </ul>
-        </section>
-        <section class="section" id="education">
-            <h2 class="section__title">Education</h2>
-            <div><hr class="hr"></div>
-            <div>
-                <div>
-                    <p><strong>Sep 2011 – June 2014</strong></p>
-                </div>
-                <div>
-                    <p><strong>Luong The Vinh Private High School</strong></p>
-                </div>
-            </div>
+                <div class='social-container'>
+                    <a class="social-container__button" href="https://www.facebook.com/extremeboyvn" target='_blank'>
+                        <img src='https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png'
+                             class='social-container__icon'>
+                        <p class='social-container__name'>Facebook</p>
+                    </a>
 
-            <div>
-                <div>
-                    <p><strong>Aug 2014 – Current</strong></p>
-                </div>
-                <div>
-                    <p><strong>Foreign Trade University</strong></p>
-                    <p>Business Administration</p>
-                    <p>GPA: 3.92/4.00</p>
-                </div>
-            </div>
+                    <a class="social-container__button" href="https://www.instagram.com/duyanh2912/" target='_blank'>
+                        <img src='http://www.freeiconspng.com/uploads/instagram-icon--socialmedia-iconset--uiconstock-21.png'
+                             class='social-container__icon'>
+                        <p class='social-container__name'>Instagram</p>
+                    </a>
 
-            <div>
-                <div>
-                    <p><strong>Aug 2014 – Current</strong></p>
+                    <a class="social-container__button" href="https://github.com/duyanh2912" target='_blank'>
+                        <img src='https://cdn.iconscout.com/public/images/icon/free/png-512/github-brand-logo-3c9d78d3a4407227-512x512.png'
+                             class='social-container__icon'>
+                        <p class='social-container__name'>Github</p>
+                    </a>
                 </div>
+            </section>
+        </div>
+        <div class="right-branch">
+            <section class="section" id="personal-summary">
+                <h2 class="section__title">Personal Summary</h2>
                 <div>
-                    <p><strong>Techkids – Coding School</strong></p>
-                    <p>Mobile application development - iOS</p>
+                    <hr class="hr">
                 </div>
-            </div>
+                <p class="section__paragraph">
+                    I have experience in developing software for iOS and creating single-page web application with
+                    React. I
+                    can
+                    use designing tools such as Illustrator and Photoshop.
+                <p class="section__paragraph">
+                    I'm also a cat lover. That's why you can see my cat clearer than you can see me.
+                </p>
+            </section>
+            <section class="section" id="education">
+                <h2 class="section__title">Education</h2>
+                <div>
+                    <hr class="hr">
+                </div>
 
-            <div>
-                <div>
-                    <p><strong>Sep 2017 – Current</strong></p>
+                <div class="text-group">
+                    <h3 class="text-group__title">Luong The Vinh Private High School</h3>
+                    <h4 class="text-group__subtitle">Sep 2011 – June 2014</h4>
                 </div>
-                <div>
-                    <p><strong>Techkids – Coding School</strong></p>
-                    <p>Full-stack Web Development</p>
-                </div>
-            </div>
 
-        </section>
+                <div class="text-group">
+                    <h3 class="text-group__title">Foreign Trade University</h3>
+                    <h4 class="text-group__subtitle">Aug 2014 – Current</h4>
+                    <p class="text-group__text">Business Administration</p>
+                    <p class="text-group__text">GPA: 3.92/4.00</p>
+                </div>
+
+                <div class="text-group">
+                    <h3 class="text-group__title">Techkids – Coding School</h3>
+                    <h4 class="text-group__subtitle">Nov 2016 – Feb 2017</h4>
+                    <p class="text-group__text">Mobile application development - iOS</p>
+                </div>
+
+                <div class="text-group">
+                    <h3 class="text-group__title">Techkids – Coding School</h3>
+                    <h4 class="text-group__subtitle">Sep 2017 – Current</h4>
+                    <p class="text-group__text">Full-stack Web Development</p>
+                </div>
+
+            </section>
+            <section class="section">
+                <h2 class="section__title">Projects</h2>
+                <div>
+                    <hr class="hr">
+                </div>
+                <div class="text-group">
+                    <h3 class="text-group__title">Zombie Maze</h3>
+                    <p class="text-group__text">Thrilling.</p>
+                    <p class="text-group__text">Unbeatable.</p>
+
+                    <a href="https://www.youtube.com/watch?v=y9QDmFdFaIE&t=4s" target="_blank"
+                       class="link-button link-button--red">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i> Demo
+                    </a>
+                    &nbsp;
+                    <a href="https://github.com/duyanh2912/Hackathon" target="_blank" class="link-button">
+                        <i class="fa fa-github" aria-hidden="true"></i> Source
+                    </a>
+                </div>
+            </section>
+        </div>
     </div>
 </div>
 

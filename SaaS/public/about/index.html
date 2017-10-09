@@ -8,9 +8,10 @@
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="index.js"></script>
 </head>
 
-<body>
+<body onresize="relocateElement()">
 <nav class='navbar navbar-dark bg-dark navbar-expand-md'>
     <div class='container'>
         <a class='navbar-brand' href='/' target='_blank'>
@@ -29,7 +30,7 @@
 
 <div class="container">
     <div class="wrapper">
-        <div class="left-branch">
+        <div class="left-branch" id="left-branch">
             <section class="section" id="profile-picture">
                 <img src="profile_picture.jpg" alt="my profile picture" class="section__image">
             </section>
@@ -46,7 +47,7 @@
                     <p>Address: Thai Thinh, Dong Da, Hanoi</p>
                 </div>
             </section>
-            <section class="section section--secondary">
+            <section class="section section--secondary" id="contact">
                 <h2 class="section__title">
                     Find Me On
                 </h2>
@@ -75,7 +76,7 @@
                 </div>
             </section>
         </div>
-        <div class="right-branch">
+        <div class="right-branch" id="right-branch">
             <section class="section" id="personal-summary">
                 <h2 class="section__title">Personal Summary</h2>
                 <div>

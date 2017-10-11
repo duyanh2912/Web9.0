@@ -1,0 +1,43 @@
+.menu {
+  background-color: #D5B0AC;
+  text-align: center;
+  margin-bottom: 40px; }
+  .menu span {
+    color: #402E2A;
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #D5B0AC;
+    transition: color 0.2s linear, background-color 0.2s linear;
+    position: relative; }
+    .menu span:hover {
+      color: white;
+      background-color: #9CD08F; }
+    .menu span > nav {
+      display: inline-block;
+      background-color: initial;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.2s linear;
+      z-index: 20;
+      left: 100%;
+      top: 0;
+      transform: translateX(1px); }
+      .menu span > nav > span {
+        display: block;
+        width: 100px;
+        height: 30px;
+        margin-bottom: 1px; }
+        .menu span > nav > span:last-child {
+          margin-bottom: 0; }
+    .menu span:hover > nav {
+      opacity: 1; }
+  .menu > span > nav {
+    left: 0;
+    top: 100%;
+    transform: translateY(1px); }
+
+/*# sourceMappingURL=menu.css.map */

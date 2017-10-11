@@ -1,0 +1,66 @@
+$bg-color: #D5B0AC;
+$text-color: #402E2A;
+$bg-color-alt: #9CD08F;
+$text-color-alt: white;
+
+@mixin menu-vertical() {
+  display: inline-block;
+  background-color: initial;
+
+  & > span {
+    display: block;
+    width: 100px;
+    height: 30px;
+    margin-bottom: 1px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.menu {
+  background-color: $bg-color;
+  text-align: center;
+  margin-bottom: 40px;
+
+  & span {
+    color: $text-color;
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: $bg-color;
+    transition: color 0.2s linear, background-color 0.2s linear;
+    position: relative;
+
+    &:hover {
+      color: $text-color-alt;
+      background-color: $bg-color-alt;
+    }
+
+    & > nav {
+      @include menu-vertical;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.2s linear;
+      z-index: 20;
+      left: 100%;
+      top: 0;
+      transform: translateX(1px);
+    }
+
+    &:hover > nav {
+      opacity: 1;
+    }
+  }
+
+  & > span > nav {
+    left: 0;
+    top: 100%;
+    transform: translateY(1px);
+  }
+}
+
+

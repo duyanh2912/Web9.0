@@ -1,5 +1,5 @@
 body {
-  background-color: #e3e3e3; }
+  background-color: #f1f1f1; }
 
 .wrapper {
   display: flex;
@@ -110,3 +110,5 @@ body {
   color: #458fcc; }
   .link-button.link-button--red {
     color: #ff6447; }
+
+/*# sourceMappingURL=about.css.map */

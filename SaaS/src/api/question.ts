@@ -16,6 +16,10 @@ export const getAllQuestion = (): Question[] => {
     return data.questions;
 };
 
+export const getQuestion = (id: number): (Question | undefined) => {
+    return getAllQuestion()[id];
+};
+
 const saveQuestions = (questions: Question[]) => {
     const data = {questions};
     const json = JSON.stringify(data, undefined, "  ");

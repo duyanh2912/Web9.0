@@ -15,6 +15,9 @@ exports.getAllQuestion = function () {
         return [];
     return data.questions;
 };
+exports.getQuestion = function (id) {
+    return exports.getAllQuestion()[id];
+};
 var saveQuestions = function (questions) {
     var data = { questions: questions };
     var json = JSON.stringify(data, undefined, "  ");

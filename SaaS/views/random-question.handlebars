@@ -1,0 +1,12 @@
+<div>
+    <form action="/question" method="get" class="question-form">
+        <input type="hidden" name="id" value="{{questionId}}">
+        <h2 class="question-form__content">{{questionContent}}</h2>
+        <button class="question-form__button question-form__button--yes" type="submit" name="vote" value="yes">
+            <i class="fa fa-thumbs-o-up"></i> &nbsp;Đúng / Trái
+        </button>
+        <button class="question-form__button question-form__button--no" type="submit" name="vote" value="no">
+            <i class="fa fa-thumbs-o-down"></i> &nbsp;Sai / Phải
+        </button>
+    </form>
+</div>

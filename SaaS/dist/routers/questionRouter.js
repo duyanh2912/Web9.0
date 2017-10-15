@@ -4,16 +4,24 @@ var express = require("express");
 var questionApi = require("../api/question");
 var router = express.Router();
 router.get("/", function (req, res) {
-    var _a = questionApi.randomQuestion(), question = _a.content, yes = _a.yes, no = _a.no;
-    res.render("question", {
-        question: question,
-        yes: yes,
-        no: no,
+    var _a = questionApi.randomQuestion(), content = _a.content, id = _a.id;
+    res.render("random-question", {
+        questionId: id,
+        questionContent: content,
+        cssPath: "/static/css/random-question.css"
     });
 });
 router.get("/:id", function (req, res) {
-    console.log(req.query);
-    res.send(req.params);
+    var question = questionApi.getQuestion(req.params.id);
+    if (!question) {
+        res.send("Invalid id.");
+        return;
+    }
+    res.render("specificQuestion", {
+        questionContent: question.content,
+        questionYes: question.yes,
+        questionNo: question.no
+    });
 });
 router.post("/", function (req, res) {
     questionApi.addQuestion(req.body.question);

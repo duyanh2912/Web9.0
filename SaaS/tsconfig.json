@@ -5,8 +5,15 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "alwaysStrict": true,
+    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
     "noImplicitAny": true,
-    "outDir": "dist"
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules"

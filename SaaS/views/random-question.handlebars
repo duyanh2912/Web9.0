@@ -1,6 +1,7 @@
 <div>
-    <form action="/question" method="get" class="question-form">
+    <form action="/question" method="post" class="question-form">
         <input type="hidden" name="id" value="{{questionId}}">
+        <input type="hidden" name="action" value="answer">
         <h2 class="question-form__content">{{questionContent}}</h2>
         <button class="question-form__button question-form__button--yes" type="submit" name="vote" value="yes">
             <i class="fa fa-thumbs-o-up"></i> &nbsp;Đúng / Trái

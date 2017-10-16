@@ -23,19 +23,21 @@ export const getQuestion = (id: number): (Question | undefined) => {
 const saveQuestions = (questions: Question[]) => {
     const data = {questions};
     const json = JSON.stringify(data, undefined, "  ");
-    fs.writeFileSync(questionPath, json, "utf-8")
+    fs.writeFileSync(questionPath, json, "utf-8");
 };
 
 export const addQuestion = (content: string) => {
     let questions = getAllQuestion();
+    const id = questions.length;
     const newQuestion = {
         content,
         yes: 0,
         no: 0,
-        id: questions.length
+        id
     };
     questions.push(newQuestion);
     saveQuestions(questions);
+    return id;
 };
 
 export const randomQuestion = (): Question => {
@@ -43,4 +45,10 @@ export const randomQuestion = (): Question => {
     const a = Math.random() * (questions.length-1);
     const index = Math.round(a);
     return questions[index];
+};
+
+export const voteFor = (id: number, yes: boolean) => {
+    const questions = getAllQuestion();
+    yes ? questions[id].yes++ : questions[id].no++;
+    saveQuestions(questions);
 };

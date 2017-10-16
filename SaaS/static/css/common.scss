@@ -1,3 +1,21 @@
 @import "bootstrap/scss/_functions";
 @import "bootstrap/scss/_variables";
 @import "bootstrap/scss/_mixins";
+
+$yes-color: #007bff;
+$no-color: #e2465c;
+
+@mixin container() {
+  @include make-container-max-widths();
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@mixin fixed-from-top($distance) {
+  position: fixed;
+  left: 50%;
+  top: $distance;
+  transform: translate(-50%,-50%);
+}

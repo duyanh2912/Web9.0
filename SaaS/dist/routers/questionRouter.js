@@ -17,15 +17,33 @@ router.get("/:id", function (req, res) {
         res.send("Invalid id.");
         return;
     }
-    res.render("specificQuestion", {
+    var yesPercent = question.yes / (question.yes + question.no) * 100;
+    res.render("specific-question", {
         questionContent: question.content,
         questionYes: question.yes,
-        questionNo: question.no
+        questionNo: question.no,
+        yesPercent: yesPercent ? yesPercent : 50,
+        cssPath: "/static/css/specific-question.css"
     });
 });
 router.post("/", function (req, res) {
-    questionApi.addQuestion(req.body.question);
-    res.redirect("/ask");
+    switch (req.body.action) {
+        case "ask": {
+            var id = questionApi.addQuestion(req.body.question);
+            res.redirect("/question/" + id);
+            return;
+        }
+        case "answer": {
+            var id = req.body.id;
+            var vote = req.body.vote === "yes";
+            questionApi.voteFor(id, vote);
+            res.redirect("/question/" + id);
+            return;
+        }
+        default:
+            res.send("Invalid post");
+            return;
+    }
 });
 exports.default = router;
 //# sourceMappingURL=questionRouter.js.map

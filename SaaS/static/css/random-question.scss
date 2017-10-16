@@ -1,19 +1,12 @@
 @import "./common.scss";
 
 .question-form {
-  @include make-container-max-widths();
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  @include container();
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  position: fixed;
   width: 100%;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%,-50%);
+  @include fixed-from-top(40%);
 
   &__content {
     text-align: center;
@@ -30,10 +23,10 @@
     font-weight: 300;
 
     &--yes {
-      background-color: #007bff;
+      background-color: $yes-color;
     }
     &--no {
-      background-color: #e2465c;
+      background-color: $no-color;
     }
   }
 }

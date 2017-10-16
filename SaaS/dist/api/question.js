@@ -25,19 +25,26 @@ var saveQuestions = function (questions) {
 };
 exports.addQuestion = function (content) {
     var questions = exports.getAllQuestion();
+    var id = questions.length;
     var newQuestion = {
         content: content,
         yes: 0,
         no: 0,
-        id: questions.length
+        id: id
     };
     questions.push(newQuestion);
     saveQuestions(questions);
+    return id;
 };
 exports.randomQuestion = function () {
     var questions = exports.getAllQuestion();
     var a = Math.random() * (questions.length - 1);
     var index = Math.round(a);
     return questions[index];
+};
+exports.voteFor = function (id, yes) {
+    var questions = exports.getAllQuestion();
+    yes ? questions[id].yes++ : questions[id].no++;
+    saveQuestions(questions);
 };
 //# sourceMappingURL=question.js.map

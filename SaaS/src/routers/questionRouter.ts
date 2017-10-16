@@ -4,18 +4,29 @@ import * as questionApi from "../api/question";
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    const {content, id} = questionApi.randomQuestion();
+    const question = questionApi.randomQuestion();
+    if (!question) {
+        res.render("error-page", {
+            error: "There are no question yet.",
+            cssPath: "/static/css/error-page.css"
+        });
+        return;
+    }
+
     res.render("random-question", {
-        questionId: id,
-        questionContent: content,
-        cssPath: "/static/css/random-question.css"
+        questionId: question!.id,
+        questionContent: question!.content,
+        cssPath: "/static/css/random-question.css",
     });
 });
 
 router.get("/:id", (req, res) => {
     const question = questionApi.getQuestion(req.params.id);
     if (!question) {
-        res.send("Invalid id.");
+        res.render("error-page", {
+            error: "Invalid question id.",
+            cssPath: "/static/css/error-page.css"
+        });
         return;
     }
 
@@ -24,7 +35,7 @@ router.get("/:id", (req, res) => {
         questionContent: question.content,
         questionYes: question.yes,
         questionNo: question.no,
-        yesPercent: yesPercent ? yesPercent : 50,
+        yesPercent: !isNaN(yesPercent) ? yesPercent : 50,
         cssPath: "/static/css/specific-question.css"
     });
 });
@@ -40,7 +51,7 @@ router.post("/", (req, res) => {
         case "answer": {
             const id = req.body.id;
             const vote = req.body.vote === "yes";
-            questionApi.voteFor(id,vote);
+            questionApi.voteFor(id, vote);
             res.redirect(`/question/${id}`);
             return;
         }

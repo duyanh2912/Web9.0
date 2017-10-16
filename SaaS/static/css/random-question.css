@@ -9,8 +9,9 @@
   width: 100%;
   position: fixed;
   left: 50%;
-  top: 40%;
-  transform: translate(-50%, -50%); }
+  top: 30%;
+  transform: translate(-50%, -50%);
+  transform: translateX(-50%); }
   @media (min-width: 576px) {
     .question-form {
       max-width: 540px; } }

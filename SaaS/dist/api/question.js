@@ -2,49 +2,58 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = require("../path");
 var fs = require("fs");
+var node_uuid_1 = require("node-uuid");
 var questionPath = path_1.dataFolder + "question.json";
-exports.getAllQuestion = function () {
-    var data = { questions: [] };
+var loadData = function () {
+    var data = { allIds: [], byId: {} };
     try {
-        data = JSON.parse(fs.readFileSync(questionPath, "utf-8"));
+        var raw = fs.readFileSync(questionPath, "utf-8");
+        data = JSON.parse(raw);
     }
     catch (err) {
         console.log(err);
     }
-    if (!data.questions || !data.questions.length)
-        return [];
-    return data.questions;
+    return data;
+};
+exports.getAllQuestion = function () {
+    var data = loadData();
+    return data.allIds.map(function (id) { return data.byId[id]; });
 };
 exports.getQuestion = function (id) {
-    return exports.getAllQuestion()[id];
+    return loadData().byId[id];
 };
-var saveQuestions = function (questions) {
-    var data = { questions: questions };
+var saveData = function (data) {
     var json = JSON.stringify(data, undefined, "  ");
     fs.writeFileSync(questionPath, json, "utf-8");
 };
 exports.addQuestion = function (content) {
-    var questions = exports.getAllQuestion();
-    var id = questions.length;
+    var data = loadData();
+    var id = node_uuid_1.v4();
     var newQuestion = {
         content: content,
         yes: 0,
         no: 0,
         id: id
     };
-    questions.push(newQuestion);
-    saveQuestions(questions);
+    data.allIds.push(id);
+    data.byId[id] = newQuestion;
+    saveData(data);
     return id;
 };
 exports.randomQuestion = function () {
-    var questions = exports.getAllQuestion();
-    var a = Math.random() * (questions.length - 1);
-    var index = Math.round(a);
-    return questions[index];
+    var _a = loadData(), allIds = _a.allIds, byId = _a.byId;
+    var rand = Math.floor(Math.random() * (allIds.length));
+    if (rand > allIds.length - 1)
+        rand = allIds.length - 1;
+    var id = allIds[rand];
+    return byId[id];
 };
 exports.voteFor = function (id, yes) {
-    var questions = exports.getAllQuestion();
-    yes ? questions[id].yes++ : questions[id].no++;
-    saveQuestions(questions);
+    var data = loadData();
+    if (data.byId[id]) {
+        var question = data.byId[id];
+        yes ? question.yes++ : question.no++;
+        saveData(data);
+    }
 };
 //# sourceMappingURL=question.js.map

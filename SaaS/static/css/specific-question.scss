@@ -2,40 +2,34 @@
 
 .question-display {
   @include container();
-  @include fixed-from-top(40%);
+  @include fixed-from-top(30%);
+  transform: translateX(-50%);
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   &__content {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    flex-basis: 100%;
   }
 
   &__voting {
+    height: 2rem;
     width: 100%;
-    display: flex;
+    flex-basis: 100%;
     color: white;
     font-weight: 300;
     border-radius: 4px;
     align-items: stretch;
     overflow: hidden;
-  }
-
-  @mixin voting-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 0.75rem;
+    background-color: $no-color;
+    margin-bottom: 1rem;
   }
 
   &__voting-bar-yes {
-    flex-basis: 50%;
     background-color: $yes-color;
-    @include voting-bar;
-  }
-
-  &__voting-bar-no {
-    flex-grow: 1;
-    background-color: $no-color;
-    @include voting-bar;
+    height: 100%;
   }
 }

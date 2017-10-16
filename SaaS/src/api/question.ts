@@ -1,54 +1,74 @@
 import {dataFolder} from "../path";
 import * as fs from "fs";
 import Question from "../models/Question";
+import {v4} from "node-uuid";
+
+interface QuestionData {
+    allIds: string[];
+    byId: {
+        [id: string]: Question;
+    };
+}
 
 const questionPath = dataFolder + "question.json";
 
-export const getAllQuestion = (): Question[] => {
-    let data: { questions: Question[] } = {questions: []};
+const loadData = (): QuestionData => {
+    let data: QuestionData = {allIds: [], byId: {}};
     try {
-        data = JSON.parse(fs.readFileSync(questionPath, "utf-8"));
+        const raw = fs.readFileSync(questionPath, "utf-8");
+        data = JSON.parse(raw);
     } catch (err) {
         console.log(err);
     }
+    return data;
+};
 
-    if (!data.questions || !data.questions.length) return [];
-    return data.questions;
+export const getAllQuestion = (): Question[] => {
+    const data = loadData();
+    return data.allIds.map(id => data.byId[id]);
 };
 
 export const getQuestion = (id: number): (Question | undefined) => {
-    return getAllQuestion()[id];
+    return loadData().byId[id];
 };
 
-const saveQuestions = (questions: Question[]) => {
-    const data = {questions};
+const saveData = (data: QuestionData) => {
     const json = JSON.stringify(data, undefined, "  ");
     fs.writeFileSync(questionPath, json, "utf-8");
 };
 
 export const addQuestion = (content: string) => {
-    let questions = getAllQuestion();
-    const id = questions.length;
+    let data = loadData();
+    const id = v4();
     const newQuestion = {
         content,
         yes: 0,
         no: 0,
         id
     };
-    questions.push(newQuestion);
-    saveQuestions(questions);
+
+    data.allIds.push(id);
+    data.byId[id] = newQuestion;
+
+    saveData(data);
     return id;
 };
 
-export const randomQuestion = (): Question => {
-    const questions = getAllQuestion();
-    const a = Math.random() * (questions.length-1);
-    const index = Math.round(a);
-    return questions[index];
+export const randomQuestion = (): Question | undefined => {
+    const { allIds, byId } = loadData();
+
+    let rand = Math.floor(Math.random() * (allIds.length));
+    if (rand > allIds.length - 1) rand = allIds.length - 1;
+
+    const id = allIds[rand];
+    return byId[id];
 };
 
 export const voteFor = (id: number, yes: boolean) => {
-    const questions = getAllQuestion();
-    yes ? questions[id].yes++ : questions[id].no++;
-    saveQuestions(questions);
+    const data = loadData();
+    if (data.byId[id]) {
+        const question = data.byId[id];
+        yes ? question.yes ++ : question.no ++;
+        saveData(data);
+    }
 };

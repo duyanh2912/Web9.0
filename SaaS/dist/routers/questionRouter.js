@@ -4,17 +4,27 @@ var express = require("express");
 var questionApi = require("../api/question");
 var router = express.Router();
 router.get("/", function (req, res) {
-    var _a = questionApi.randomQuestion(), content = _a.content, id = _a.id;
+    var question = questionApi.randomQuestion();
+    if (!question) {
+        res.render("error-page", {
+            error: "There are no question yet.",
+            cssPath: "/static/css/error-page.css"
+        });
+        return;
+    }
     res.render("random-question", {
-        questionId: id,
-        questionContent: content,
-        cssPath: "/static/css/random-question.css"
+        questionId: question.id,
+        questionContent: question.content,
+        cssPath: "/static/css/random-question.css",
     });
 });
 router.get("/:id", function (req, res) {
     var question = questionApi.getQuestion(req.params.id);
     if (!question) {
-        res.send("Invalid id.");
+        res.render("error-page", {
+            error: "Invalid question id.",
+            cssPath: "/static/css/error-page.css"
+        });
         return;
     }
     var yesPercent = question.yes / (question.yes + question.no) * 100;
@@ -22,7 +32,7 @@ router.get("/:id", function (req, res) {
         questionContent: question.content,
         questionYes: question.yes,
         questionNo: question.no,
-        yesPercent: yesPercent ? yesPercent : 50,
+        yesPercent: !isNaN(yesPercent) ? yesPercent : 50,
         cssPath: "/static/css/specific-question.css"
     });
 });

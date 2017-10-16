@@ -1,0 +1,8 @@
+@import "./common.scss";
+
+.error {
+  @include container;
+  @include fixed-from-top(40%);
+  width: 100%;
+  text-align: center;
+}

@@ -6,7 +6,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  @include fixed-from-top(40%);
+  @include fixed-from-top(30%);
+  transform: translateX(-50%);
 
   &__content {
     text-align: center;

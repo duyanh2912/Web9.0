@@ -1,9 +1,9 @@
 <div class="question-display">
     <h2 class="question-display__content">{{questionContent}}</h2>
     <div class="question-display__voting">
-        <div class="question-display__voting-bar-yes" style="flex-basis: {{yesPercent}}%">
-            {{questionYes}}
+        <div class="question-display__voting-bar-yes" style="width: {{yesPercent}}%">
         </div>
-        <div class="question-display__voting-bar-no">{{questionNo}}</div>
     </div>
+    <h2>{{questionYes}} <i class="fa fa-thumbs-o-up"></i></h2>
+    <h2>{{questionNo}} <i class="fa fa-thumbs-o-down"></i></h2>
 </div>

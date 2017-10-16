@@ -1,7 +1,7 @@
 import * as express from "express";
 import * as parser from "body-parser";
-import askRouter from "./routers/askRouter"
-import questionRouter from "./routers/questionRouter"
+import askRouter from "./routers/askRouter";
+import questionRouter from "./routers/questionRouter";
 import * as exhbs from "express-handlebars";
 import {layoutsFolder, staticFolder, viewsFolder} from "./path";
 
@@ -30,7 +30,7 @@ app.use("/question", questionRouter);
 // Port
 app.listen(6969, (err: string) => {
     if (err) {
-        console.log(err)
+        console.log(err);
     } else {
         console.log("Website is up at 6969");
     }

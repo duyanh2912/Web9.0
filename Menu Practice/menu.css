@@ -21,6 +21,7 @@
       background-color: initial;
       position: absolute;
       opacity: 0;
+      visibility: hidden;
       transition: opacity 0.2s linear;
       z-index: 20;
       left: 100%;
@@ -34,6 +35,7 @@
         .menu span > nav > span:last-child {
           margin-bottom: 0; }
     .menu span:hover > nav {
+      visibility: visible;
       opacity: 1; }
   .menu > span > nav {
     left: 0;

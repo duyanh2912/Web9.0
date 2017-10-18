@@ -1,0 +1,19 @@
+.color-div {
+  background-color: green;
+  text-align: center;
+  color: white;
+
+  @media screen and (min-width: 576px) {
+    background-color: #007bff;
+  }
+  @media screen and (min-width: 768px) {
+    background-color: #D5B0AC;
+  }
+  @media screen and (min-width: 992px) {
+    background-color: #f1f1f1;
+  }
+  @media screen and (min-width: 1200px) {
+    background-color: #e2465c;
+  }
+}
+

@@ -37,10 +37,10 @@
     border-radius: 4px;
     align-items: stretch;
     overflow: hidden;
-    background-color: #e2465c;
+    background-color: #d44946;
     margin-bottom: 1rem; }
   .question-display__voting-bar-yes {
-    background-color: #007bff;
+    background-color: #2c6fae;
     height: 100%; }
 
 /*# sourceMappingURL=specific-question.css.map */

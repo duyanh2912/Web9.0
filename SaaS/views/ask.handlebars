@@ -1,6 +1,9 @@
-<form action="/question" method="post">
-    <label for="question-input" style="cursor: pointer">Question: </label>
+<form action="/question" method="post" class="ask-form">
+    <h2 class="ask-form__intro">
+        <label for="input" style="cursor: pointer">Hãy hỏi cộng đồng một câu hỏi đúng/sai hoặc có/không</label>
+    </h2>
     <input type="hidden" name="action" value="ask">
-    <input type="text" name="question" id="question-input"/>
-    <input type="submit">
+    <textarea name="question" id="input" class="ask-form__textarea" required maxlength="200"></textarea>
+    <p class="ask-form__word-count">Còn 200/200 kí tự</p>
+    <button class="ask-form__submit-btn">Gửi</button>
 </form>

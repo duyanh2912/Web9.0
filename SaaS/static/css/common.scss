@@ -2,8 +2,8 @@
 @import "bootstrap/scss/_variables";
 @import "bootstrap/scss/_mixins";
 
-$yes-color: #007bff;
-$no-color: #e2465c;
+$yes-color: rgb(44, 111, 174);
+$no-color: rgb(212, 73, 70);
 
 @mixin container() {
   @include make-container-max-widths();
@@ -17,5 +17,40 @@ $no-color: #e2465c;
   position: fixed;
   left: 50%;
   top: $distance;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
+}
+
+@mixin btn {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: $input-btn-border-width solid transparent;
+  @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
+  @include transition($btn-transition);
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    opacity: .65;
+    @include box-shadow(none);
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+  }
 }

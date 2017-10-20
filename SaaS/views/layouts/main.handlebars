@@ -9,31 +9,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/navigation-bar.css">
     <link rel="stylesheet" href="{{cssPath}}">
 </head>
 
 <body>
-<nav class='navbar navbar-dark bg-dark navbar-expand'>
-    <div class='container justify-content-start'>
-        <a class='navbar-brand' href='/' style="margin-left: 15px">
-            Home
-        </a>
-
-        <div class="justify-content-end" id="navItems">
-            <div class='navbar-nav'>
-                <a class='nav-item nav-link' href='/about'>
-                    About me
-                </a>
-                <a class='nav-item nav-link' href='/ask'>
-                    Ask
-                </a>
-                <a class='nav-item nav-link' href='/question'>
-                    Question
-                </a>
-            </div>
-        </div>
-    </div>
+<nav class='navigation-bar'>
+    <a class='navigation-bar__home' href='/'>
+        Home
+    </a>
+    <button class="navigation-bar__collapse-btn">
+        <i class="fa fa-bars"></i>
+    </button>
+    <input type="checkbox" id="navigation-bar__collapse-checkbox" class="navigation-bar__collapse-checkbox">
+    <a class='navigation-bar__link' href='/about'>
+        About me
+    </a>
+    <a class='navigation-bar__link' href='/ask'>
+        Ask
+    </a>
+    <a class='navigation-bar__link' href='/question'>
+        Question
+    </a>
 </nav>
-    {{{body}}}
+{{{body}}}
+<script src="/static/js/navigation-bar.js"></script>
 </body>
 </html>

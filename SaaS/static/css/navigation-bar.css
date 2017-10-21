@@ -11,7 +11,7 @@
   position: relative;
   padding-top: 8px;
   padding-bottom: 8px; }
-  @media (min-width: 768px) {
+  @media (min-width: 576px) {
     .navigation-bar {
       padding-bottom: 0;
       padding-top: 0; } }
@@ -24,7 +24,7 @@
     .navigation-bar__home:hover {
       color: white;
       text-decoration: none; }
-    @media (min-width: 768px) {
+    @media (min-width: 576px) {
       .navigation-bar__home {
         margin-right: 15px;
         padding-top: 13px;
@@ -48,7 +48,7 @@
       background-color: #0a0a0a;
       color: white;
       text-decoration: none; }
-    @media (min-width: 768px) {
+    @media (min-width: 576px) {
       .navigation-bar__link {
         flex-grow: 0;
         flex-basis: initial;
@@ -71,7 +71,7 @@
     border: 1px solid #666;
     border-radius: 4px;
     background-color: transparent; }
-    @media (min-width: 768px) {
+    @media (min-width: 576px) {
       .navigation-bar__collapse-btn {
         display: none; } }
 

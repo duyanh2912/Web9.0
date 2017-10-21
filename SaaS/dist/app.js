@@ -6,6 +6,7 @@ var askRouter_1 = require("./routers/askRouter");
 var questionRouter_1 = require("./routers/questionRouter");
 var exhbs = require("express-handlebars");
 var path_1 = require("./path");
+var mongoose = require("mongoose");
 var app = express();
 // Config handlebars
 app.engine("handlebars", exhbs({
@@ -24,6 +25,16 @@ app.get("/about", function (req, res) { return res.render("about", {
 }); });
 app.use("/ask", askRouter_1.default);
 app.use("/question", questionRouter_1.default);
+// Database
+mongoose.connect("mongodb://localhost/quyetde", {
+    useMongoClient: true
+}, function (err) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log("connect db success");
+});
 // Port
 app.listen(6969, function (err) {
     if (err) {

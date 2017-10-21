@@ -4,7 +4,7 @@ $nav-color: rgb(146, 144, 146);
 $nav-background-color: rgb(31, 31, 31);
 $nav-color-hover: white;
 $nav-background-color-hover: rgb(10, 10, 10);
-$expand-point: md;
+$expand-point: sm;
 
 @mixin desktop {
   @include media-breakpoint-up($expand-point) {

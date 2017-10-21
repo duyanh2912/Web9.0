@@ -13,7 +13,8 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "lib": ["ES2015"]
   },
   "exclude": [
     "node_modules"

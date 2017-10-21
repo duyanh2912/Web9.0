@@ -6,7 +6,8 @@
     "e9ec88e9-5205-410c-96ff-12bcc7b71c6b",
     "eca9fa45-0a18-4ed2-82e0-32508cb0bd8a",
     "31e50329-5292-430f-a379-57e180cd635f",
-    "8aa78cf9-7b82-493f-9ad6-0945aeeb906e"
+    "8aa78cf9-7b82-493f-9ad6-0945aeeb906e",
+    "e666ef51-7734-4caa-ba80-41ef3d87669a"
   ],
   "byId": {
     "a1fa3eb3-ee2e-41ef-988c-6666c682fdc4": {
@@ -35,13 +36,13 @@
     },
     "eca9fa45-0a18-4ed2-82e0-32508cb0bd8a": {
       "content": "Coke or weed?",
-      "yes": 0,
+      "yes": 1,
       "no": 1,
       "id": "eca9fa45-0a18-4ed2-82e0-32508cb0bd8a"
     },
     "31e50329-5292-430f-a379-57e180cd635f": {
       "content": "BB or loli?",
-      "yes": 1,
+      "yes": 2,
       "no": 0,
       "id": "31e50329-5292-430f-a379-57e180cd635f"
     },
@@ -50,6 +51,12 @@
       "yes": 0,
       "no": 0,
       "id": "8aa78cf9-7b82-493f-9ad6-0945aeeb906e"
+    },
+    "e666ef51-7734-4caa-ba80-41ef3d87669a": {
+      "content": "Con gà có trước hay quả trứng có trước?",
+      "yes": 0,
+      "no": 1,
+      "id": "e666ef51-7734-4caa-ba80-41ef3d87669a"
     }
   }
 }

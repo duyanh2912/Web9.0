@@ -1,5 +1,5 @@
 <div>
-    <form action="/question" method="post" class="question-form">
+    <form action="/question/{{questionId}}" method="post" class="question-form">
         <input type="hidden" name="id" value="{{questionId}}">
         <input type="hidden" name="action" value="answer">
         <h2 class="question-form__content">{{questionContent}}</h2>

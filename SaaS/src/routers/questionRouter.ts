@@ -1,5 +1,5 @@
 import * as express from "express";
-import * as questionApi from "../api/question";
+import * as questionApi from "../controllers/questionController";
 import renderErrorPage from "./renderErrorPage";
 
 const router = express.Router();
@@ -34,17 +34,20 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.post("/", (req, res) => {
-    const id = questionApi.addQuestion(req.body.question);
-    res.redirect(`/question/${id}`);
-    return;
+router.post("/", async (req, res) => {
+    try {
+        const id = await questionApi.addQuestion(req.body.question);
+        res.redirect(`/question/${id}`);
+    } catch (err) {
+        renderErrorPage(res, err);
+    }
 });
 
-router.post("/:id", (req, res) => {
+router.post("/:id", async (req, res) => {
     try {
         const id = req.body.id;
         const vote = req.body.vote === "yes";
-        questionApi.voteFor(id, vote);
+        await questionApi.voteFor(id, vote);
         res.redirect(`/question/${id}`);
     } catch (err) {
         renderErrorPage(res, err);

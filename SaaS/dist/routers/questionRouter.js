@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
-var questionApi = require("../api/question");
+var questionApi = require("../controllers/questionController");
 var renderErrorPage_1 = require("./renderErrorPage");
 var router = express.Router();
 router.get("/", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
@@ -89,21 +89,45 @@ router.get("/:id", function (req, res) { return __awaiter(_this, void 0, void 0,
         }
     });
 }); });
-router.post("/", function (req, res) {
-    var id = questionApi.addQuestion(req.body.question);
-    res.redirect("/question/" + id);
-    return;
-});
-router.post("/:id", function (req, res) {
-    try {
-        var id = req.body.id;
-        var vote = req.body.vote === "yes";
-        questionApi.voteFor(id, vote);
-        res.redirect("/question/" + id);
-    }
-    catch (err) {
-        renderErrorPage_1.default(res, err);
-    }
-});
+router.post("/", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var id, err_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, questionApi.addQuestion(req.body.question)];
+            case 1:
+                id = _a.sent();
+                res.redirect("/question/" + id);
+                return [3 /*break*/, 3];
+            case 2:
+                err_3 = _a.sent();
+                renderErrorPage_1.default(res, err_3);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
+router.post("/:id", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var id, vote, err_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                id = req.body.id;
+                vote = req.body.vote === "yes";
+                return [4 /*yield*/, questionApi.voteFor(id, vote)];
+            case 1:
+                _a.sent();
+                res.redirect("/question/" + id);
+                return [3 /*break*/, 3];
+            case 2:
+                err_4 = _a.sent();
+                renderErrorPage_1.default(res, err_4);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
 exports.default = router;
 //# sourceMappingURL=questionRouter.js.map

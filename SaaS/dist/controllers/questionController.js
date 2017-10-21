@@ -80,4 +80,4 @@ exports.voteFor = function (id, yes) { return __awaiter(_this, void 0, void 0, f
         }
     });
 }); };
-//# sourceMappingURL=question.js.map
+//# sourceMappingURL=questionController.js.map

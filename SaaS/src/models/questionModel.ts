@@ -1,4 +1,4 @@
-import {model, Schema} from "mongoose";
+import {Document, model, Schema} from "mongoose";
 
 const questionSchema = new Schema({
     content: {type: String, required: true},
@@ -6,6 +6,12 @@ const questionSchema = new Schema({
     no: {type: Number, default: 0}
 });
 
-const Question = model("Question",questionSchema);
+interface IQuestion extends Document {
+    content: string;
+    yes: number;
+    no: number;
+}
+
+const Question = model<IQuestion>("Question",questionSchema);
 
 export default Question;

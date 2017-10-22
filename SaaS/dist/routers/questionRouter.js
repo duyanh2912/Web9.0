@@ -109,23 +109,32 @@ router.post("/", function (req, res) { return __awaiter(_this, void 0, void 0, f
     });
 }); });
 router.post("/:id", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var id, vote, err_4;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var id, vote, _a, content, likes, err_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _b.trys.push([0, 5, , 6]);
                 id = req.body.id;
+                if (!req.body.vote) return [3 /*break*/, 2];
                 vote = req.body.vote === "yes";
                 return [4 /*yield*/, questionApi.voteFor(id, vote)];
             case 1:
-                _a.sent();
+                _b.sent();
                 res.redirect("/question/" + id);
-                return [3 /*break*/, 3];
+                return [2 /*return*/];
             case 2:
-                err_4 = _a.sent();
+                if (!req.body.like) return [3 /*break*/, 4];
+                return [4 /*yield*/, questionApi.likeQuestion(id)];
+            case 3:
+                _a = _b.sent(), content = _a.content, likes = _a.likes;
+                res.send("Question: " + content + " Likes: " + likes);
+                return [2 /*return*/];
+            case 4: return [3 /*break*/, 6];
+            case 5:
+                err_4 = _b.sent();
                 renderErrorPage_1.default(res, err_4);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
     });
 }); });

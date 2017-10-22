@@ -32,3 +32,9 @@ export const voteFor = async (id: string, yes: boolean) => {
     yes ? question.yes++ : question.no++;
     return question.save();
 };
+
+export const likeQuestion = async (id: string) => {
+    const question = await getQuestion(id);
+    question.likes++;
+    return question.save();
+};

@@ -80,4 +80,16 @@ exports.voteFor = function (id, yes) { return __awaiter(_this, void 0, void 0, f
         }
     });
 }); };
+exports.likeQuestion = function (id) { return __awaiter(_this, void 0, void 0, function () {
+    var question;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, exports.getQuestion(id)];
+            case 1:
+                question = _a.sent();
+                question.likes++;
+                return [2 /*return*/, question.save()];
+        }
+    });
+}); };
 //# sourceMappingURL=questionController.js.map

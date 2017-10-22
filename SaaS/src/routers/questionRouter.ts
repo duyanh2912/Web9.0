@@ -46,9 +46,18 @@ router.post("/", async (req, res) => {
 router.post("/:id", async (req, res) => {
     try {
         const id = req.body.id;
-        const vote = req.body.vote === "yes";
-        await questionApi.voteFor(id, vote);
-        res.redirect(`/question/${id}`);
+        if (req.body.vote) {
+            const vote = req.body.vote === "yes";
+            await questionApi.voteFor(id, vote);
+            res.redirect(`/question/${id}`);
+            return;
+        }
+        if (req.body.like) {
+            const {content, likes} = await questionApi.likeQuestion(id);
+            res.send(`Question: ${content} Likes: ${likes}`);
+            return;
+        }
+
     } catch (err) {
         renderErrorPage(res, err);
     }

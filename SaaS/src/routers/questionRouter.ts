@@ -54,7 +54,7 @@ router.post("/:id", async (req, res) => {
         }
         if (req.body.like) {
             const {content, likes} = await questionApi.likeQuestion(id);
-            res.send(`Question: ${content} Likes: ${likes}`);
+            res.send(`<p>Question: ${content}</p> <p>Likes: ${likes}</p>`);
             return;
         }
 

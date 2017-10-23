@@ -127,7 +127,7 @@ router.post("/:id", function (req, res) { return __awaiter(_this, void 0, void 0
                 return [4 /*yield*/, questionApi.likeQuestion(id)];
             case 3:
                 _a = _b.sent(), content = _a.content, likes = _a.likes;
-                res.send("Question: " + content + " Likes: " + likes);
+                res.send("<p>Question: " + content + "</p> <p>Likes: " + likes + "</p>");
                 return [2 /*return*/];
             case 4: return [3 /*break*/, 6];
             case 5:

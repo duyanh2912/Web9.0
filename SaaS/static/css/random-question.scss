@@ -14,12 +14,19 @@
     flex-basis: 100%;
     margin-bottom: 4rem;
   }
+
+  &__button-wrapper {
+    flex-basis: 100%;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
   &__button {
     @include btn;
     border-radius: 8px;
     padding: 0.75rem 1.25rem;
     cursor: pointer;
-    margin-bottom: 3rem;
     font-weight: 300;
     &--yes {
       @include button-variant($yes-color, $yes-color);
@@ -28,11 +35,11 @@
       @include button-variant($no-color, $no-color);
     }
   }
+
   &__navigation {
-    flex-basis: 100%;
     text-align: center;
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
+    flex-basis: auto;
   }
   &__navigation-link {
     @include btn;
@@ -42,5 +49,14 @@
     &:last-child {
       margin-right: 0;
     }
+  }
+  &__like-btn {
+    $btn-color: theme-color("success");
+    @include btn;
+    @include button-variant($btn-color, $btn-color);
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    display: block;
+    width: 100%;
   }
 }

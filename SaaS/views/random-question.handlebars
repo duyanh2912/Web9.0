@@ -4,16 +4,20 @@
         <input type="hidden" name="action" value="answer">
         <h2 class="question-form__content">{{questionContent}}</h2>
 
-        <button class="question-form__button question-form__button--no" type="submit" name="vote" value="no">
-            <i class="fa fa-thumbs-o-down"></i> &nbsp;Sai / Không / Trái
-        </button>
-        <button class="question-form__button question-form__button--yes" type="submit" name="vote" value="yes">
-            <i class="fa fa-thumbs-o-up"></i> &nbsp;Đúng / Có / Phải
-        </button>
-        <button name="like" value="true">
-            Like
-        </button>
+        <div class="question-form__button-wrapper">
+            <button class="question-form__button question-form__button--no" type="submit" name="vote" value="no">
+                <i class="fa fa-thumbs-o-down"></i> &nbsp;Sai / Không / Trái
+            </button>
+
+            <button class="question-form__button question-form__button--yes" type="submit" name="vote" value="yes">
+                <i class="fa fa-thumbs-o-up"></i> &nbsp;Đúng / Có / Phải
+            </button>
+        </div>
+
         <div class="question-form__navigation">
+            <button name="like" value="true" class="question-form__like-btn">
+                Like
+            </button>
             <a href="/question/{{questionId}}" class="question-form__navigation-link">
                 Kết quả vote
             </a>

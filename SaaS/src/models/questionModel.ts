@@ -11,7 +11,7 @@ interface IQuestion extends Document {
     content: string;
     yes: number;
     no: number;
-    likes: number
+    likes: number;
 }
 
 const Question = model<IQuestion>("Question",questionSchema);

@@ -3,7 +3,8 @@
         <label for="input" style="cursor: pointer">Hãy hỏi cộng đồng một câu hỏi đúng/sai hoặc có/không</label>
     </h2>
     <input type="hidden" name="action" value="ask">
-    <textarea name="question" id="input" class="ask-form__textarea" required maxlength="200"></textarea>
-    <p class="ask-form__word-count">Còn 200/200 kí tự</p>
+    <textarea name="question" class="ask-form__textarea" required maxlength="200" id="js-text-input"></textarea>
+    <p class="ask-form__word-count">Còn <span id="js-remaining-chars">200</span>/200 kí tự</p>
     <button class="ask-form__submit-btn">Gửi</button>
 </form>
+<script src="/static/js/ask.js"></script>

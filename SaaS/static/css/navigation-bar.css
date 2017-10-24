@@ -1,20 +1,33 @@
 .navigation-bar {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 100%;
-  background-color: #1f1f1f;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  position: relative;
-  padding-top: 8px;
-  padding-bottom: 8px; }
-  @media (min-width: 576px) {
-    .navigation-bar {
-      padding-bottom: 0;
-      padding-top: 0; } }
+  background-color: #343a40; }
+  .navigation-bar__container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 0 auto; }
+    @media (min-width: 576px) {
+      .navigation-bar__container {
+        max-width: 540px; } }
+    @media (min-width: 768px) {
+      .navigation-bar__container {
+        max-width: 720px; } }
+    @media (min-width: 992px) {
+      .navigation-bar__container {
+        max-width: 960px; } }
+    @media (min-width: 1200px) {
+      .navigation-bar__container {
+        max-width: 1140px; } }
+    @media (min-width: 576px) {
+      .navigation-bar__container {
+        padding-bottom: 0;
+        padding-top: 0; } }
   .navigation-bar__home {
     font-size: 1.25rem;
     color: white;
@@ -35,8 +48,8 @@
     padding-right: 15px;
     padding-left: 15px;
     width: 100%;
-    background-color: #1f1f1f;
-    color: #929092;
+    background-color: #343a40;
+    color: rgba(255, 255, 255, 0.5);
     display: none;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -45,7 +58,7 @@
     margin-right: -15px;
     justify-self: center; }
     .navigation-bar__link:hover {
-      background-color: #0a0a0a;
+      background-color: #292d32;
       color: white;
       text-decoration: none; }
     @media (min-width: 576px) {

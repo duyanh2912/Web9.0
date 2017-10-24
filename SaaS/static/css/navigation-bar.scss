@@ -1,9 +1,9 @@
 @import "./common.scss";
 
-$nav-color: rgb(146, 144, 146);
-$nav-background-color: rgb(31, 31, 31);
+$nav-color: rgba(255,255,255,.5);
+$nav-background-color: theme-color("dark");
 $nav-color-hover: white;
-$nav-background-color-hover: rgb(10, 10, 10);
+$nav-background-color-hover: darken($nav-background-color,5%);
 $expand-point: sm;
 
 @mixin desktop {
@@ -13,17 +13,21 @@ $expand-point: sm;
 }
 
 .navigation-bar {
-  @include make-container;
   background-color: $nav-background-color;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  position: relative;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  @include desktop {
-    padding-bottom: 0;
-    padding-top: 0;
+
+  &__container {
+    @include container;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 0 auto;
+    @include desktop {
+      padding-bottom: 0;
+      padding-top: 0;
+    }
   }
 
   &__home {

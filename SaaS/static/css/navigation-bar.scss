@@ -16,7 +16,7 @@ $expand-point: sm;
   background-color: $nav-background-color;
 
   &__container {
-    @include container;
+    @include container-fluid;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

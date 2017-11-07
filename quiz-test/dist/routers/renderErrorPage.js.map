@@ -1,0 +1,1 @@
+{"version":3,"file":"renderErrorPage.js","sourceRoot":"","sources":["../../src/routers/renderErrorPage.ts"],"names":[],"mappings":";;AAAA,IAAM,eAAe,GAAG,UAAC,GAAoB,EAAE,OAAe;IAC1D,GAAG,CAAC,MAAM,CAAC,YAAY,EAAE;QACrB,KAAK,EAAE,OAAO;QACd,OAAO,EAAE,4BAA4B;KACxC,CAAC,CAAC;AACP,CAAC,CAAC;AAEF,kBAAe,eAAe,CAAC"}

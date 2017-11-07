@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 id="js-success-notification" class="mt-3 d-none text-success"></h1>
+    <h1 class="mt-3">{{testData.title}}</h1>
+    <p>{{testData.description}}</p>
+
+    <form action="/answer" method="post" id="js-test-form" onsubmit="return confirm('Are you sure?')">
+        {{#each testData.questions}}
+            <article>
+                <h5>{{title}}</h5>
+                {{#each answer}}
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" value="{{id}}" name="question_{{../id}}">
+                            {{name}}
+                        </label>
+                    </div>
+                {{/each}}
+            </article>
+        {{/each}}
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="/static/js/test.js"></script>
+</div>

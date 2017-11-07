@@ -1,0 +1,25 @@
+.error {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center; }
+  @media (min-width: 576px) {
+    .error {
+      max-width: 540px; } }
+  @media (min-width: 768px) {
+    .error {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    .error {
+      max-width: 960px; } }
+  @media (min-width: 1200px) {
+    .error {
+      max-width: 1140px; } }
+
+/*# sourceMappingURL=error-page.css.map */

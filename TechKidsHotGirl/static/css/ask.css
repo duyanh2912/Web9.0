@@ -1,0 +1,69 @@
+.ask-form {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 3rem; }
+  @media (min-width: 576px) {
+    .ask-form {
+      max-width: 540px; } }
+  @media (min-width: 768px) {
+    .ask-form {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    .ask-form {
+      max-width: 960px; } }
+  @media (min-width: 1200px) {
+    .ask-form {
+      max-width: 1140px; } }
+  .ask-form__textarea {
+    display: block;
+    width: 100%;
+    height: 8rem;
+    margin-bottom: 0.25rem; }
+  .ask-form__submit-btn {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: 0.25rem;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    color: #fff;
+    background-color: #2c6fae;
+    border-color: #2c6fae;
+    cursor: pointer; }
+    .ask-form__submit-btn:focus, .ask-form__submit-btn:hover {
+      text-decoration: none; }
+    .ask-form__submit-btn:focus, .ask-form__submit-btn.focus {
+      outline: 0;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); }
+    .ask-form__submit-btn.disabled, .ask-form__submit-btn:disabled {
+      opacity: .65; }
+    .ask-form__submit-btn:active, .ask-form__submit-btn.active {
+      background-image: none; }
+    .ask-form__submit-btn:hover {
+      color: #fff;
+      background-color: #245c8f;
+      border-color: #225585; }
+    .ask-form__submit-btn:focus, .ask-form__submit-btn.focus {
+      box-shadow: 0 0 0 3px rgba(44, 111, 174, 0.5); }
+    .ask-form__submit-btn.disabled, .ask-form__submit-btn:disabled {
+      background-color: #2c6fae;
+      border-color: #2c6fae; }
+    .ask-form__submit-btn:active, .ask-form__submit-btn.active,
+    .show > .ask-form__submit-btn.dropdown-toggle {
+      background-color: #245c8f;
+      background-image: none;
+      border-color: #225585; }
+  .ask-form__word-count {
+    color: #666666;
+    font-weight: 200;
+    font-size: 0.85rem; }
+
+/*# sourceMappingURL=ask.css.map */

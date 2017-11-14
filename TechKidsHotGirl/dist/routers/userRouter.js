@@ -61,14 +61,13 @@ userRouter.get("/", function (req, res) { return __awaiter(_this, void 0, void 0
         }
     });
 }); });
-userRouter.post("/", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var body, user, err_2;
+userRouter.get("/:id", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var user, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                body = req.body;
-                return [4 /*yield*/, userController_1.addUser(body)];
+                return [4 /*yield*/, userController_1.getUserById(req.params.id)];
             case 1:
                 user = _a.sent();
                 res.status(200).send(user);
@@ -77,6 +76,29 @@ userRouter.post("/", function (req, res) { return __awaiter(_this, void 0, void 
                 err_2 = _a.sent();
                 console.log(err_2);
                 res.status(500).send(err_2.message);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
+userRouter.post("/", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var err_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, userController_1.addUser(req.body)];
+            case 1:
+                _a.sent();
+                res.status(200).send({ success: true });
+                return [3 /*break*/, 3];
+            case 2:
+                err_3 = _a.sent();
+                console.log(err_3);
+                res.status(500).send({
+                    success: false,
+                    error: err_3.message
+                });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

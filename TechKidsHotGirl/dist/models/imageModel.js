@@ -8,7 +8,7 @@ var imageSchema = new mongoose_1.Schema({
     plus: { type: [ObjectId], default: [] },
     description: String,
     title: { type: String, required: true },
-    poster: { type: ObjectId, ref: "users", required: true }
+    poster: { type: ObjectId, ref: "User", required: true }
 }, {
     timestamps: {
         createdAt: "date",

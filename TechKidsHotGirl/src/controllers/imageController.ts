@@ -23,15 +23,19 @@ export const addImage = async (image: Partial<Image>) => {
 
 // Get All Image
 export const getAllImages = () => {
-    return ImageModel.find({});
+    return ImageModel.find({}).populate("poster","-password").exec();
 };
 
-/* Get Image By Id
-Also increase view count */
+// Get Image By Id
 export const getImageById = (id: string) => {
-    return ImageModel.findById(id).then(doc => {
+    return ImageModel.findById(id).populate("poster","-password").exec();
+};
+
+// Increase view count
+export const increaseViewCount = (imageId: string) => {
+    return ImageModel.findById(imageId).exec().then(doc => {
         doc!.view++;
-        return doc!.save();
+        doc!.save();
     });
 };
 
@@ -43,7 +47,7 @@ export const increaseImageLikes = async (imageId: string, userId: string) => {
         throw new Error("Invalid poster id.");
     }
 
-    return ImageModel.findById(imageId).then(doc => {
+    return ImageModel.findById(imageId).exec().then(doc => {
         doc!.plus.push(userId);
         return doc!.save();
     });

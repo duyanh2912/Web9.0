@@ -62,14 +62,17 @@ exports.addImage = function (image) { return __awaiter(_this, void 0, void 0, fu
 }); };
 // Get All Image
 exports.getAllImages = function () {
-    return imageModel_1.default.find({});
+    return imageModel_1.default.find({}).populate("poster", "-password").exec();
 };
-/* Get Image By Id
-Also increase view count */
+// Get Image By Id
 exports.getImageById = function (id) {
-    return imageModel_1.default.findById(id).then(function (doc) {
+    return imageModel_1.default.findById(id).populate("poster", "-password").exec();
+};
+// Increase view count
+exports.increaseViewCount = function (imageId) {
+    return imageModel_1.default.findById(imageId).exec().then(function (doc) {
         doc.view++;
-        return doc.save();
+        doc.save();
     });
 };
 // Like increment
@@ -83,7 +86,7 @@ exports.increaseImageLikes = function (imageId, userId) { return __awaiter(_this
                 if (!user) {
                     throw new Error("Invalid poster id.");
                 }
-                return [2 /*return*/, imageModel_1.default.findById(imageId).then(function (doc) {
+                return [2 /*return*/, imageModel_1.default.findById(imageId).exec().then(function (doc) {
                         doc.plus.push(userId);
                         return doc.save();
                     })];

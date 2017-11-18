@@ -64,6 +64,13 @@ exports.addImage = function (image) { return __awaiter(_this, void 0, void 0, fu
 exports.getAllImages = function () {
     return imageModel_1.default.find({}).populate("poster", "-password").exec();
 };
+// Get Images by page
+exports.getImages = function (page) {
+    return imageModel_1.default.find({})
+        .skip(page * 10).limit(10)
+        .populate("poster", "-password")
+        .exec();
+};
 // Get Image By Id
 exports.getImageById = function (id) {
     return imageModel_1.default.findById(id).populate("poster", "-password").exec();

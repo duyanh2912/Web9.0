@@ -5,5 +5,4 @@ var helper = function (_) { return path.join(__dirname, _); };
 exports.staticFolder = helper("../static/");
 exports.viewsFolder = helper("../views/");
 exports.layoutsFolder = helper("../views/layouts/");
-exports.dataFolder = helper("../static/data/");
 //# sourceMappingURL=path.js.map

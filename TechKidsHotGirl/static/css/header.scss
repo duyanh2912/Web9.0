@@ -1,0 +1,60 @@
+.header {
+  background-color: #ffffff;
+  padding: 15px 0;
+}
+
+.search-panel {
+  display: flex;
+  align-items: center;
+}
+
+.search-panel input {
+  display: block;
+  width: 100%;
+  padding-right: 32px;
+}
+
+.search-panel .fa-search {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo-panel {
+  text-align: center;
+  padding: 6px 0;
+}
+
+.logo-panel img{
+  height: 24px;
+}
+
+.user-panel {
+  border: 1px solid #cecece;
+  display: flex;
+  align-items: stretch;
+  height: 38px;
+}
+
+.user-panel button {
+  border: 0;
+  border-right: 1px solid #cecece;
+  border-radius: 0;
+  flex: 0 0 36px;
+  cursor: pointer;
+}
+
+.user-panel button:active,
+.user-panel button:hover {
+  background-color: #00A1C2;
+  color: #fff;
+}
+
+.username {
+  padding: 0 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 36px;
+}

@@ -26,6 +26,16 @@ imageRouter.get("/:id", async (req, res) => {
     }
 });
 
+imageRouter.get("/page/:page", async (req,res) => {
+    try {
+        const images = await getAllImages();
+        res.status(200).send({images});
+    } catch (err) {
+        console.log(err);
+        res.status(500).send(err.message);
+    }
+});
+
 imageRouter.post("/", async (req, res) => {
     const body = req.body;
     try {

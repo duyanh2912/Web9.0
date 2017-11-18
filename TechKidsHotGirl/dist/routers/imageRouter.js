@@ -82,8 +82,28 @@ imageRouter.get("/:id", function (req, res) { return __awaiter(_this, void 0, vo
         }
     });
 }); });
+imageRouter.get("/page/:page", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var images, err_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, imageController_1.getAllImages()];
+            case 1:
+                images = _a.sent();
+                res.status(200).send({ images: images });
+                return [3 /*break*/, 3];
+            case 2:
+                err_3 = _a.sent();
+                console.log(err_3);
+                res.status(500).send(err_3.message);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
 imageRouter.post("/", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var body, image, err_3;
+    var body, image, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -97,9 +117,9 @@ imageRouter.post("/", function (req, res) { return __awaiter(_this, void 0, void
                 res.status(200).send(image);
                 return [3 /*break*/, 4];
             case 3:
-                err_3 = _a.sent();
-                console.log(err_3);
-                res.status(500).send(err_3.message);
+                err_4 = _a.sent();
+                console.log(err_4);
+                res.status(500).send(err_4.message);
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }

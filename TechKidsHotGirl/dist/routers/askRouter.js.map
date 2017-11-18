@@ -1,1 +1,0 @@
-{"version":3,"file":"askRouter.js","sourceRoot":"","sources":["../../src/routers/askRouter.ts"],"names":[],"mappings":";;AAAA,iCAAmC;AAEnC,IAAM,MAAM,GAAG,OAAO,CAAC,MAAM,EAAE,CAAC;AAEhC,MAAM,CAAC,GAAG,CAAC,GAAG,EAAE,UAAC,GAAG,EAAC,GAAG;IACpB,GAAG,CAAC,MAAM,CAAC,KAAK,EAAC;QACb,OAAO,EAAE,qBAAqB;KACjC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC;AAEH,kBAAe,MAAM,CAAC"}

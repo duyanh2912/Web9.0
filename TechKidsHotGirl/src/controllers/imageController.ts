@@ -23,12 +23,20 @@ export const addImage = async (image: Partial<Image>) => {
 
 // Get All Image
 export const getAllImages = () => {
-    return ImageModel.find({}).populate("poster","-password").exec();
+    return ImageModel.find({}).populate("poster", "-password").exec();
 };
+
+// Get Images by page
+export const getImages = (page: number) => {
+    return ImageModel.find({})
+        .skip(page * 10).limit(10)
+        .populate("poster", "-password")
+        .exec();
+}
 
 // Get Image By Id
 export const getImageById = (id: string) => {
-    return ImageModel.findById(id).populate("poster","-password").exec();
+    return ImageModel.findById(id).populate("poster", "-password").exec();
 };
 
 // Increase view count

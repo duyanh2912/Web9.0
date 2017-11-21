@@ -1,4 +1,12 @@
 .content {
   padding-top: 30px; }
 
+.grid-item {
+  width: calc((100% - 90px)/4);
+  float: left;
+  margin-bottom: 30px; }
+
+.gutter-sizer {
+  width: 30px; }
+
 /*# sourceMappingURL=content.css.map */

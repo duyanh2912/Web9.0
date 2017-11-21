@@ -1,3 +1,15 @@
+$column-gutter: 30px;
+
 .content {
   padding-top: 30px;
+}
+
+.grid-item {
+  width: calc((100% - #{$column-gutter * 3})/4);
+  float: left;
+  margin-bottom: 30px;
+}
+
+.gutter-sizer {
+  width: $column-gutter;
 }

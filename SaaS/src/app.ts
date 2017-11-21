@@ -6,6 +6,10 @@ import * as exhbs from "express-handlebars";
 import {layoutsFolder, staticFolder, viewsFolder} from "./path";
 import * as mongoose from "mongoose";
 
+const config = require("../config.json");
+const connectionString = process.env.PORT ? config.production.connectionString : config.development.connectionString;
+const port = process.env.PORT ? process.env.PORT : config.development.port;
+
 let app = express();
 
 // Config handlebars
@@ -29,7 +33,7 @@ app.use("/ask", askRouter);
 app.use("/question", questionRouter);
 
 // Database
-mongoose.connect("mongodb://localhost/quyetde", {
+mongoose.connect(connectionString, {
     useMongoClient: true
 }, (err) => {
     if (err) {
@@ -40,7 +44,7 @@ mongoose.connect("mongodb://localhost/quyetde", {
 });
 
 // Port
-app.listen(6969, (err: string) => {
+app.listen(port, (err: string) => {
     if (err) {
         console.log(err);
     } else {

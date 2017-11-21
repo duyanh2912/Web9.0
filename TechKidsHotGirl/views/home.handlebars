@@ -1,14 +1,18 @@
 <div class="container content">
-    <div class="row" id="girl-list-container"></div>
+    <div class="grid" id="girl-list-container">
+        <div class="gutter-sizer"></div>
+    </div>
 </div>
+
 <script id="girl-list-template" type="text/x-handlebars-template">
     \{{#each images}}
-    <div class="col-md-3 col-sm-6 col-12">
+    <div class="grid-item">
         <img src="\{{imageUrl}}" alt="" class="img img-fluid">
         <h3>\{{title}}</h3>
     </div>
     \{{/each}}
 </script>
+
 <script src="/static/js/home.js"></script>
 
 <!--<div class="feed-section py-4">-->

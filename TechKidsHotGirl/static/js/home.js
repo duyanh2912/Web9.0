@@ -1,21 +1,31 @@
-let source = document.getElementById("girl-list-template").innerHTML;
-let template = Handlebars.compile(source);
+const source = document.getElementById("girl-list-template").innerHTML;
+const template = Handlebars.compile(source);
 
 let pageToLoad = 0;
 let isLoading = false;
+
+const $grid = $('.grid').masonry({
+    percentPosition: true,
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-item',
+    gutter: ".gutter-sizer"
+});
 
 function loadNextPage() {
     isLoading = true;
 
     $.get(`/api/images/page/${pageToLoad}`)
         .then(data => {
-            let html = template(data);
-            $("#girl-list-container").append(html);
+            const html = $(template(data));
+            $grid.append(html).masonry('appended', html);
+            $grid.imagesLoaded().progress(function () {
+                $grid.masonry("layout");
+            });
 
             isLoading = false;
             pageToLoad += 1;
 
-            if ($("body").height() < $(window).height()) {
+            if ($("html").height() < $(window).height()) {
                 loadNextPage();
             }
         })
@@ -31,7 +41,7 @@ function checkEndlessScrolling() {
     if (isLoading) return;
     const offset = $(window).scrollTop();
     const windowHeight = $(window).height();
-    const bodyHeight = $("body").height();
+    const bodyHeight = $("html").height();
 
     if (windowHeight + offset > bodyHeight - windowHeight / 2) loadNextPage();
 }

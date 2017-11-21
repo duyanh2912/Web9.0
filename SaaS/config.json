@@ -1,0 +1,9 @@
+{
+  "production": {
+    "connectionString": "mongodb://admin:admin@ds117136.mlab.com:17136/quyetde"
+  },
+  "development": {
+    "connectionString": "mongodb://localhost/quyetde",
+    "port": 6969
+  }
+}

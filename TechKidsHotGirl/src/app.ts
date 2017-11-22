@@ -6,6 +6,11 @@ import imageRouter from "./routers/imageRouter";
 import userRouter from "./routers/userRouter";
 import {layoutsFolder, staticFolder, viewsFolder} from "./path";
 
+const config = require("../config.json");
+
+const connectionString = process.env.PORT ? config.production.connectionString : config.development.connectionString;
+const port = process.env.PORT ? process.env.PORT : config.development.port;
+
 let app = express();
 
 // Config handlebars
@@ -29,7 +34,7 @@ app.use("/api/images", imageRouter);
 app.use("/api/users", userRouter);
 
 // Database
-mongoose.connect("mongodb://localhost/TechKidsHotGirl", {
+mongoose.connect(connectionString, {
     useMongoClient: true
 }, (err) => {
     if (err) {
@@ -40,10 +45,10 @@ mongoose.connect("mongodb://localhost/TechKidsHotGirl", {
 });
 
 // Port
-app.listen(6969, (err: string) => {
+app.listen(port, (err: string) => {
     if (err) {
         console.log(err);
     } else {
-        console.log("Website is up at 6969");
+        console.log(`Website is up at ${port}`);
     }
 });

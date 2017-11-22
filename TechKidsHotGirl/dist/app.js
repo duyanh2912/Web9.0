@@ -7,6 +7,9 @@ var mongoose = require("mongoose");
 var imageRouter_1 = require("./routers/imageRouter");
 var userRouter_1 = require("./routers/userRouter");
 var path_1 = require("./path");
+var config = require("../config.json");
+var connectionString = process.env.PORT ? config.production.connectionString : config.development.connectionString;
+var port = process.env.PORT ? process.env.PORT : config.development.port;
 var app = express();
 // Config handlebars
 app.engine("handlebars", exhbs({
@@ -26,7 +29,7 @@ app.get("/", function (req, res) {
 app.use("/api/images", imageRouter_1.default);
 app.use("/api/users", userRouter_1.default);
 // Database
-mongoose.connect("mongodb://localhost/TechKidsHotGirl", {
+mongoose.connect(connectionString, {
     useMongoClient: true
 }, function (err) {
     if (err) {
@@ -36,12 +39,12 @@ mongoose.connect("mongodb://localhost/TechKidsHotGirl", {
     console.log("connect db success");
 });
 // Port
-app.listen(6969, function (err) {
+app.listen(port, function (err) {
     if (err) {
         console.log(err);
     }
     else {
-        console.log("Website is up at 6969");
+        console.log("Website is up at " + port);
     }
 });
 //# sourceMappingURL=app.js.map

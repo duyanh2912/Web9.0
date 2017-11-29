@@ -20,6 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body>
@@ -43,7 +44,19 @@
                     <button>
                         <i class="fa fa-bars"></i>
                     </button>
-                    <div class="username">Bach Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le Le</div>
+                    {{#if username}}
+                        <form class="username" action="/api/users/logout" method="post">
+                            <span>{{username}}</span>
+                            <button type="submit">Log Out</button>
+                        </form>
+                    {{else}}
+                        <form class="login" method="post" action="/api/users/login">
+                            <input type="text" name="username">
+                            <input type="password" name="password">
+                            <input type="checkbox" name="remember">
+                            <input type="submit">
+                        </form>
+                    {{/if}}
                 </div>
             </div>
         </div>

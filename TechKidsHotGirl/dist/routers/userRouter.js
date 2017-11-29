@@ -104,5 +104,35 @@ userRouter.post("/", function (req, res) { return __awaiter(_this, void 0, void 
         }
     });
 }); });
+userRouter.post("/login", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var result, err_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, userController_1.loginUser(req.body.username, req.body.password)];
+            case 1:
+                result = _a.sent();
+                if (!req.body.remember) {
+                    req.session.username = result.username;
+                }
+                else {
+                    res.cookie("username", result.username);
+                }
+                res.redirect("/");
+                return [3 /*break*/, 3];
+            case 2:
+                err_4 = _a.sent();
+                res.status(401).send(err_4.message);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
+userRouter.post("/logout", function (req, res) {
+    res.clearCookie("username");
+    req.session.username = undefined;
+    res.redirect("/");
+});
 exports.default = userRouter;
 //# sourceMappingURL=userRouter.js.map

@@ -37,7 +37,7 @@
   height: 38px;
 }
 
-.user-panel button {
+.user-panel > button {
   border: 0;
   border-right: 1px solid #cecece;
   border-radius: 0;
@@ -45,8 +45,8 @@
   cursor: pointer;
 }
 
-.user-panel button:active,
-.user-panel button:hover {
+.user-panel > button:active,
+.user-panel > button:hover {
   background-color: #00A1C2;
   color: #fff;
 }

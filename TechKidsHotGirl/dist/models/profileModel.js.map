@@ -1,0 +1,1 @@
+{"version":3,"file":"profileModel.js","sourceRoot":"","sources":["../../src/models/profileModel.ts"],"names":[],"mappings":";;AAAA,qCAAiD;AAEjD,IAAM,iBAAiB,GAAG,IAAI,iBAAM,CAAC;IACjC,WAAW,EAAE,EAAC,IAAI,EAAE,MAAM,EAAC;IAC3B,UAAU,EAAE;QACR,MAAM,EAAE,MAAM;QACd,MAAM,EAAE,OAAO;KAClB;CACJ,CAAC,CAAC;AAUH,IAAM,YAAY,GAAG,gBAAK,CAAc,OAAO,EAAE,iBAAiB,CAAC,CAAC;AAEpE,kBAAe,YAAY,CAAC"}

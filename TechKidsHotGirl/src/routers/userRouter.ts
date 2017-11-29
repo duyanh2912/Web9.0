@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {addUser, getAllUsers, getUserById} from "../controllers/userController";
+import {addUser, getAllUsers, getUserById, loginUser} from "../controllers/userController";
 
 let userRouter = Router();
 
@@ -15,7 +15,7 @@ userRouter.get("/", async (req, res) => {
     }
 });
 
-userRouter.get("/:id", async (req,res) => {
+userRouter.get("/:id", async (req, res) => {
     try {
         const user = await getUserById(req.params.id);
         res.status(200).send(user);
@@ -36,6 +36,26 @@ userRouter.post("/", async (req, res) => {
             error: err.message
         });
     }
+});
+
+userRouter.post("/login", async (req, res) => {
+    try {
+        let result = await loginUser(req.body.username, req.body.password);
+        if (!req.body.remember) {
+            req.session!.username = result.username;
+        } else {
+            res.cookie("username",result.username);
+        }
+        res.redirect("/");
+    } catch (err) {
+        res.status(401).send(err.message);
+    }
+});
+
+userRouter.post("/logout", (req,res) => {
+   res.clearCookie("username");
+   req.session!.username = undefined;
+   res.redirect("/");
 });
 
 export default userRouter;

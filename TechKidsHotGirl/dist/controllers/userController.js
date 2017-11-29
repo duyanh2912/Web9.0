@@ -66,4 +66,23 @@ exports.getAllUsers = function () {
 exports.getUserById = function (id) {
     return userModel_1.default.findById(id).select("-password").exec();
 };
+// Login
+exports.loginUser = function (username, password) { return __awaiter(_this, void 0, void 0, function () {
+    var user;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, userModel_1.default.findOne({ username: username }).exec()];
+            case 1:
+                user = _a.sent();
+                if (!user)
+                    throw new Error("Username not found.");
+                return [2 /*return*/, bcrypt.compare(password, user.password)
+                        .then(function (result) {
+                        if (!result)
+                            throw new Error("Authorization failed");
+                        return { username: user.username };
+                    })];
+        }
+    });
+}); };
 //# sourceMappingURL=userController.js.map
